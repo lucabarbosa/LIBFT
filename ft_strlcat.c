@@ -6,27 +6,19 @@
 /*   By: lbento <lbento@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/16 15:40:45 by lbento            #+#    #+#             */
-/*   Updated: 2025/07/16 20:03:01 by lbento           ###   ########.fr       */
+/*   Updated: 2025/07/17 18:05:46 by lbento           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlcat(char *dest, char *src, int limit);
+#include "libft.h"
 
-static int	ft_strlen(char *str)
+size_t	ft_strlcat(char *dest, const char *src, size_t limit);
+
+size_t	ft_strlcat(char *dest, const char *src, size_t limit)
 {
-	int	i;
-
-	i = 0;
-	while (str[i] != '\0')
-		i++;
-	return (i);
-}
-
-int	ft_strlcat(char *dest, char *src, int limit)
-{
-	int	i;
-	int	size_dest;
-	int	size_src;
+	size_t	i;
+	size_t	size_dest;
+	size_t	size_src;
 
 	size_dest = ft_strlen(dest);
 	size_src = ft_strlen(src);
@@ -45,7 +37,7 @@ int	ft_strlcat(char *dest, char *src, int limit)
 // int main (void)
 // {
 //     char dest[20] = "Hello";
-//     char *src = " World";
+//     const char *src = " World";
 //     int total;
 
 //     total = ft_strlcat(dest, src, 10);

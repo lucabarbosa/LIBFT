@@ -1,34 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lbento <lbento@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/16 14:53:59 by lbento            #+#    #+#             */
-/*   Updated: 2025/07/17 17:59:30 by lbento           ###   ########.fr       */
+/*   Created: 2025/07/18 10:44:36 by lbento            #+#    #+#             */
+/*   Updated: 2025/07/18 11:56:19 by lbento           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *str);
+void	*ft_memcpy(void *dest, const void *src, size_t n);
 
-size_t	ft_strlen(const char *str)
+void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-	int	i;
+	size_t				i;
+	const unsigned char	*copied;
+	unsigned char		*pasted;
 
 	i = 0;
-	while (str[i] != '\0')
+	copied = (const unsigned char *)src;
+	pasted = (unsigned char *)dest;
+	while (i < n)
+	{
+		pasted[i] = copied[i];
 		i++;
-	return (i);
+	}
+	return (dest);
 }
 // #include <stdio.h>
-// int main (void)
+// int	main(void)
 // {
-//     char *s = "";
-//     int amount;
+// 	char source[11] = "Hello World";
+// 	char dest[11];
 
-//     amount = ft_strlen(s);
-//     printf("%d\n", amount);
+// 	ft_memcpy(dest, source, 12);
+// 	printf("%s\n", dest);
 // }

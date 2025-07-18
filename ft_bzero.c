@@ -1,34 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lbento <lbento@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/16 14:53:59 by lbento            #+#    #+#             */
-/*   Updated: 2025/07/17 17:59:30 by lbento           ###   ########.fr       */
+/*   Created: 2025/07/18 10:31:42 by lbento            #+#    #+#             */
+/*   Updated: 2025/07/18 11:54:45 by lbento           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *str);
+void	ft_bzero(void *s, size_t n);
 
-size_t	ft_strlen(const char *str)
+void	ft_bzero(void *s, size_t n)
 {
-	int	i;
+	size_t			i;
+	unsigned char	*ptr;
 
+	ptr = (unsigned char *)s;
 	i = 0;
-	while (str[i] != '\0')
+	while (i < n)
+	{
+		ptr[i] = 0;
 		i++;
-	return (i);
+	}
 }
-// #include <stdio.h>
-// int main (void)
+// #include<stdio.h>
+// int	main(void)
 // {
-//     char *s = "";
-//     int amount;
+// 	char mem_char[5] = "hello";
+// 	int mem_int[3] = {1, 2 ,3};
 
-//     amount = ft_strlen(s);
-//     printf("%d\n", amount);
+// 	ft_bzero(mem_char, 5);
+// 	printf("%s\n\n", mem_char);
+// 	ft_bzero(mem_int, 12);
+// 	printf("%d, %d, %d\n\n", mem_int[0], mem_int[1], mem_int[2]);
 // }

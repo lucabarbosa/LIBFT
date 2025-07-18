@@ -6,7 +6,7 @@
 /*   By: lbento <lbento@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/16 20:03:26 by lbento            #+#    #+#             */
-/*   Updated: 2025/07/16 21:00:46 by lbento           ###   ########.fr       */
+/*   Updated: 2025/07/17 11:50:00 by lbento           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@ char	*ft_strchr(char *str, int c)
 	int	i;
 
 	i = 0;
-    while(str[i] != '\0')
+	while (str[i] != '\0')
 	{
-		if(str[i] == c)
-		return (&str[i]);
+		if (str[i] == c)
+			return (&str[i]);
 		i++;
 	}
 	if (c == '\0')
