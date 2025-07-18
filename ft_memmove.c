@@ -6,7 +6,7 @@
 /*   By: lbento <lbento@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/18 11:09:06 by lbento            #+#    #+#             */
-/*   Updated: 2025/07/18 11:53:47 by lbento           ###   ########.fr       */
+/*   Updated: 2025/07/18 12:39:09 by lbento           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,12 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 
 	copied = (const unsigned char *)src;
 	pasted = (unsigned char *)dest;
-	if (pasted > copied && pasted < copied + n)
+	if (pasted > copied)
 	{
-		i = n;
-		while (i > 0)
+		while (n > 0)
 		{
-			pasted[i] = copied[i];
-			i--;
+			n--;
+			pasted[n] = copied[n];
 		}
 	}
 	else
