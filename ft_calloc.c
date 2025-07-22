@@ -6,7 +6,7 @@
 /*   By: lbento <lbento@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/19 20:22:14 by lbento            #+#    #+#             */
-/*   Updated: 2025/07/19 20:22:14 by lbento           ###   ########.fr       */
+/*   Updated: 2025/07/22 16:49:33 by lbento           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,20 @@ void	*ft_calloc(size_t nmemb, size_t size);
 
 void	*ft_calloc(size_t nmemb, size_t size)
 {
-	size_t 	total;
-	size_t	i;
+	size_t			total;
+	size_t			i;
 	unsigned char	*ptr;
 
-	if (nmemb == 0 || size == 0)
-		return (0);
+	if (nmemb <= 0 || size <= 0)
+	{
+		ptr = malloc(1);
+		if (ptr == NULL)
+			return (NULL);
+		return (ptr);
+	}
 	total = nmemb * size;
 	if (total / size != nmemb)
-		return (0);
+		return (NULL);
 	ptr = malloc(total);
 	if (ptr == NULL)
 		return (NULL);
@@ -36,11 +41,12 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	}
 	return (ptr);
 }
-//#include <stdio.h>
-//int	main(void)
-//{
-//	int	*test;
-//	test = ft_calloc(3, 2);
-//	printf("%n\n", test);
-//	return(0);
-//}
+// #include <stdio.h>
+// int	main(void)
+// {
+// 	int	*test;
+// 	test = ft_calloc(3, 2);
+// 	printf("%n\n", test);
+//	free(test);
+// 	return(0);
+// }

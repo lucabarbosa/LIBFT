@@ -6,13 +6,13 @@
 #    By: lbento <lbento@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/15 18:22:14 by lbento            #+#    #+#              #
-#    Updated: 2025/07/17 19:09:37 by lbento           ###   ########.fr        #
+#    Updated: 2025/07/22 15:41:27 by lbento           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 
-CC = cc
+CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 
 SRCS = $(wildcard *.c)
