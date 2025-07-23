@@ -1,40 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_split.c                                         :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lbento <lbento@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/22 19:42:44 by lbento            #+#    #+#             */
-/*   Updated: 2025/07/23 19:31:13 by lbento           ###   ########.fr       */
+/*   Created: 2025/07/23 12:45:21 by lbento            #+#    #+#             */
+/*   Updated: 2025/07/23 14:10:19 by lbento           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	**ft_split(char const *s, char c);
+void	ft_putstr_fd(char *s, int fd);
 
-char	**ft_split(char const *s, char c)
+void	ft_putstr_fd(char *s, int fd)
 {
-	char s;
+	int	i;
 
-	c = s;
-	if (s == 0)
-		return (0);
-	
+	i = 0;
+	while (s[i] != '\0')
+	{
+		write(fd, &s[i], 1);
+	i++;
+	}
 }
-// #include <stdio.h>
 // int	main(void)
 // {
-// 	char **result;
-// 	int i;
-
-// 	result = ft_split("Hello entire world", ' ');
-// 	i = 0;
-// 	while(result[i])
-// 	{
-// 	printf("-> %s ", total[i]);
-// 	i++;
-// 	}
+// 	ft_putstr_fd("", 1);
+// 	ft_putstr_fd("Error", 2);
+// 	ft_putstr_fd("\nHello \t World", 1);
+// 	ft_putstr_fd("Hello World", 42);
 // 	return (0);
 // }

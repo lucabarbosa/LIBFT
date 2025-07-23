@@ -6,7 +6,7 @@
 /*   By: lbento <lbento@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/17 20:31:27 by lbento            #+#    #+#             */
-/*   Updated: 2025/07/18 11:55:13 by lbento           ###   ########.fr       */
+/*   Updated: 2025/07/23 10:14:42 by lbento           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ char	*ft_strdup(const char *s)
 	dest[i] = s[i];
 	i++;
 	}
+	dest[i] = '\0';
 	return (dest);
 }
 // #include <stdio.h>

@@ -6,7 +6,7 @@
 /*   By: lbento <lbento@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 19:49:35 by lbento            #+#    #+#             */
-/*   Updated: 2025/07/22 20:41:20 by lbento           ###   ########.fr       */
+/*   Updated: 2025/07/23 14:09:46 by lbento           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,60 +14,80 @@
 
 char	*ft_itoa(int n);
 
-static size_t	ft_count_numb(int n)
+static size_t	ft_count_dig(int n)
 {
-	int	i;
+	size_t	count;
+	long	num;
 
-	if (n == 0)
+	count = 0;
+	num = n;
+	if (num == 0)
 		return (1);
-	if (n < 0)
+	if (num < 0)
 	{
-		n = -n;
+		num = -num;
+		count++;
 	}
-	i = 0;
-	while (n > 1)
+	while (num > 0)
 	{
-		n = n / 10;
-		i++;
+		num /= 10;
+		count++;
 	}
-	return (i);
+	return (count);
+}
+
+static char	*ft_is_zero(char *result)
+{
+	result[0] = '0';
+	result[1] = '\0';
+	return (result);
 }
 
 char	*ft_itoa(int n)
 {
-	int		size_int;
-	char		*total;
-	size_t		i;
-	
-	size_int = ft_count_numb(n);
+	char		*result;
+	size_t		digits_int;
+	size_t		num;
+
+	num = n;
+	digits_int = ft_count_dig(n);
+	result = (char *)malloc(sizeof(char) * (digits_int + 1));
+	if (result == NULL)
+		return (NULL);
+	if (n == 0)
+		return (ft_is_zero(result));
 	if (n < 0)
-		size_int++;
-	total = malloc(size_int + 1);	
-	while (i > 0)
 	{
-		total[i] = (n % 10) + '0';
-		i--;
+		result[0] = '-';
+		num = -num;
 	}
-	return (total);
+	result[digits_int] = '\0';
+	while (num > 0)
+	{
+		digits_int--;
+		result[digits_int] = (num % 10) + '0';
+		num /= 10;
+	}
+	return (result);
 }
-//#include <stdio.h>
-//int	main(void)
-//{
-//	char result;
-//	result = ft_itoa(123);
-//	printf("Convertido: %s\n", result);
-//	free (result);
-//	result = ft_itoa(0);
-//	printf("Convertido: %s\n", result);
-//	free (result);
-//	result = ft_itoa(2147483647);
-//	printf("Convertido: %s\n", result);
-//	free (result);
-//	result = ft_itoa(-253);
-//	printf("Convertido: %s\n", result);
-//	free (result);
-//	result = ft_itoa(-2147483648);
-//	printf("Convertido: %s\n", result);
-//	free (result);
-//	return (0);
-//}
+// #include <stdio.h>
+// int	main(void)
+// {
+// 	char *result;
+// 	result = ft_itoa(123);
+// 	printf("Convertido: %s\n", result);
+// 	free (result);
+// 	result = ft_itoa(0);
+// 	printf("Convertido: %s\n", result);
+// 	free (result);
+// 	result = ft_itoa(2147483647);
+// 	printf("Convertido: %s\n", result);
+// 	free (result);
+// 	result = ft_itoa(-253);
+// 	printf("Convertido: %s\n", result);
+// 	free (result);
+// 	result = ft_itoa(-2147483648);
+// 	printf("Convertido: %s\n", result);
+// 	free (result);
+// 	return (0);
+// }

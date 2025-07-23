@@ -1,40 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_split.c                                         :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lbento <lbento@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/22 19:42:44 by lbento            #+#    #+#             */
-/*   Updated: 2025/07/23 19:31:13 by lbento           ###   ########.fr       */
+/*   Created: 2025/07/23 13:25:59 by lbento            #+#    #+#             */
+/*   Updated: 2025/07/23 19:08:18 by lbento           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	**ft_split(char const *s, char c);
+void	ft_striteri(char *s, void (*f)(unsigned int, char*));
 
-char	**ft_split(char const *s, char c)
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
-	char s;
+	unsigned int		i;
 
-	c = s;
-	if (s == 0)
-		return (0);
-	
+	if (!s)
+		return ;
+	i = 0;
+	while (s[i])
+	{
+		f(i, &s[i]);
+	i++;
+	}
 }
+// static void	upper_level(unsigned int i, char *s)
+// {
+// 	if (i % 2 == 0)
+// 	{
+// 		*s = ft_toupper(*s);
+// 	}
+// }
 // #include <stdio.h>
 // int	main(void)
 // {
-// 	char **result;
-// 	int i;
-
-// 	result = ft_split("Hello entire world", ' ');
-// 	i = 0;
-// 	while(result[i])
-// 	{
-// 	printf("-> %s ", total[i]);
-// 	i++;
-// 	}
-// 	return (0);
+// 	char s[] = "\0";
+// 	ft_striteri(s, upper_level);
+// 	printf("%s\n", s);
 // }
