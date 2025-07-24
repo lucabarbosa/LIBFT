@@ -6,7 +6,7 @@
 /*   By: lbento <lbento@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/17 20:31:27 by lbento            #+#    #+#             */
-/*   Updated: 2025/07/23 10:14:42 by lbento           ###   ########.fr       */
+/*   Updated: 2025/07/24 14:15:31 by lbento           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,29 +17,22 @@ char	*ft_strdup(const char *s);
 char	*ft_strdup(const char *s)
 {
 	size_t	size_s;
-	char	*dest;
-	size_t	i;
-
-	size_s = ft_strlen(s);
-	dest = (char *)malloc((size_s + 1) * sizeof(char));
+	char		*dest;
+	
+	size_s = ft_strlen(s) + 1;
+	dest = (char *)malloc(size_s * sizeof(char));
 	if (dest == NULL)
-		return (0);
-	i = 0;
-	while (i <= size_s)
-	{
-	dest[i] = s[i];
-	i++;
-	}
-	dest[i] = '\0';
+		return (NULL);
+	ft_memcpy(dest, (const void *)s, size_s);
 	return (dest);
 }
 // #include <stdio.h>
 // int main (void)
 // {
-// 	char *str = "String copied";
+// 	//char *str = "String copied";
 // 	char *dup;
 
-// 	dup = ft_strdup(str);
+// 	dup = ft_strdup("");
 // 	printf("%s\n", dup);
 // 	free(dup);
 // 	return (0);

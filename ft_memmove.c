@@ -6,7 +6,7 @@
 /*   By: lbento <lbento@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/18 11:09:06 by lbento            #+#    #+#             */
-/*   Updated: 2025/07/18 12:39:09 by lbento           ###   ########.fr       */
+/*   Updated: 2025/07/24 18:30:36 by lbento           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,20 +41,20 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	}
 	return (dest);
 }
-// #include <stdio.h>
-// int 	main(void)
-// {
-// 	char str[10] = "Hello";
-//     int src[3] = {1, 2, 3};
-//     int dst[3];
+#include <stdio.h>
+int 	main(void)
+{
+	char str[11] = "Casa branca";
+    int src[3] = {1, 2, 3};
+    int dst[3];
 
-//     ft_memmove(dst, src, sizeof(src));
-//     printf("dst = [%d, %d, %d]\n", dst[0], dst[1], dst[2]);
+    ft_memmove(dst, src, sizeof(src));
+    printf("dst = [%d, %d, %d]\n", dst[0], dst[1], dst[2]);
 
-// 	ft_memmove(str, "World", 5);
-//     printf("%s\n", str);
+	ft_memmove(str, "branca", 3);
+    printf("%s\n", str);
 
-//     ft_memmove(str, "Test", 5);
-//     printf("%s\n", str);
-// 	return (0);
-// }
+    ft_memmove(str, "Test", 5);
+    printf("%s\n", str);
+	return (0);
+}

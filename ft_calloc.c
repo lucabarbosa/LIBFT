@@ -6,7 +6,7 @@
 /*   By: lbento <lbento@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/19 20:22:14 by lbento            #+#    #+#             */
-/*   Updated: 2025/07/22 16:49:33 by lbento           ###   ########.fr       */
+/*   Updated: 2025/07/24 16:20:35 by lbento           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	size_t			i;
 	unsigned char	*ptr;
 
-	if (nmemb <= 0 || size <= 0)
+	if (nmemb == 0 || size == 0)
 	{
 		ptr = malloc(1);
 		if (ptr == NULL)
@@ -45,8 +45,8 @@ void	*ft_calloc(size_t nmemb, size_t size)
 // int	main(void)
 // {
 // 	int	*test;
-// 	test = ft_calloc(3, 2);
+// 	test = ft_calloc(0, 2);
 // 	printf("%n\n", test);
-//	free(test);
+// 	free(test);
 // 	return(0);
 // }

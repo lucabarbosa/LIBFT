@@ -6,37 +6,41 @@
 /*   By: lbento <lbento@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/16 20:03:26 by lbento            #+#    #+#             */
-/*   Updated: 2025/07/17 11:50:00 by lbento           ###   ########.fr       */
+/*   Updated: 2025/07/24 12:47:12 by lbento           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strchr(char *str, int c);
+#include "libft.h"
 
-char	*ft_strchr(char *str, int c)
+char	*ft_strchr(const char *s, int c);
+
+char	*ft_strchr(const char *s, int c)
 {
-	int	i;
+	int			i;
+	const char	*str;
+	unsigned char cc;
 
+	if (!s)
+			return (NULL);
+	str = s;
+	cc = (unsigned char)c;
 	i = 0;
-	while (str[i] != '\0')
+	while (str[i])
 	{
-		if (str[i] == c)
-			return (&str[i]);
+		if (str[i] == cc)
+			return ((char *)&str[i]);
 		i++;
 	}
-	if (c == '\0')
-		return (&str[i]);
-	return (0);
+	if (str[i] == cc)
+		return ((char *)&str[i]);
+	return (NULL);
 }
 // #include <stdio.h>
 // int main (void)
 // {
-// 	char *string = "Lucao";
+// 	char *string = "tripouille";
 // 	char *finded;
 
-// 	finded = ft_strchr(string, 'c');
-// 	printf("%s\n\n", finded);
-// 	finded = ft_strchr(string, 'x');
-// 	printf("%s\n\n", finded);
-// 	finded = ft_strchr(string, '\n');
+// 	finded = ft_strchr(string, 't' + 256);
 // 	printf("%s", finded);
 // }
