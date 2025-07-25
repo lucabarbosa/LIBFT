@@ -6,7 +6,7 @@
 /*   By: lbento <lbento@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 19:42:44 by lbento            #+#    #+#             */
-/*   Updated: 2025/07/24 14:15:47 by lbento           ###   ########.fr       */
+/*   Updated: 2025/07/25 18:40:39 by lbento           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,29 +14,51 @@
 
 char	**ft_split(char const *s, char c);
 
+static int	word_count(const char *str, char c);
+
+static char *fill_word(const char *str, int start, int end);
+
+static void *ft_free(char **strs, int count);
+
 char	**ft_split(char const *s, char c)
 {
 		int	total_word;
 		char	**splited;
 		int	i;
-		int	start;
-		int	end;
+		int	j;
+		int	len;
+		int	first;
 		
 		if (!s)
 			return (NULL);
 		total_word = word_count(s, c);
-		splited = (char **)malloc((total_word + 1) * sizeof(char));
+		splited = ft_calloc((total_word + 1), sizeof(char*));
 		if (!splited)
 			return (NULL);
-		splited = '\0';
+		len = ft_strlen(s);
 		i = 0;
-		while (s[i])
+		j = 0;
+		first = -1;
+		while (j< total_word)
 		{
-			if (s[i] != c)
-				start = i;
+			if (s[i] != c && first < 0)
+				first = i;
+			else if ((s[i] == c || i == len) && first >= 0)
+			{
+				splited[j] = fill_word(s, first, i);
+				if (!splited[j])
+				{
+				ft_free(splited, j);
+				return (NULL);	
+				}
+			first = -1;
+			j++;
+			}
 		i++;
 		}
+		return (splited);
 }
+
 static int	word_count(const char *str, char c)
 {
 	int	i;
@@ -53,27 +75,54 @@ static int	word_count(const char *str, char c)
 			switc = 1;
 			word++;
 		}
-		else if (str[i] == c)
+		if (str[i] == c)
 			switc = 0;
-	i++;
+		i++;
 	}
 	return (word);
 }
 static char *fill_word(const char *str, int start, int end)
 {
-	
-}
-#include <stdio.h>
-int	main(void)
-{
-	// char **result;
+	char *word;
+	int		i;
 
-	// result = ft_split("Hello entire world", ' ');
-	// i = 0;
-	// while(result[i])
-	// {
-	// printf("-> %s ", total[i]);
-	// i++;
-	// }
-	return (0);
+	i = 0;
+	word = malloc((end - start + 1) * sizeof(char));
+	if (!word)
+		return (NULL);
+	while(start < end)
+	{
+		word[i] = str[start];
+		start++;
+		i++;
+	}
+	word[i] = '\0';
+	return (word);
 }
+static void *ft_free(char **strs, int count)
+{
+	int	i;
+	
+	i = 0;
+	while (i < count)
+	{
+		free(strs[i]);
+		i++;
+	}
+	free(strs);
+	return (NULL);
+}
+// #include <stdio.h>
+// int	main(void)
+// {
+// 	char **result;
+// 	int	i;
+// 	result = ft_split("Hello entire world", ' ');
+// 	i = 0;
+// 	while(result[i])
+// 	{
+// 	printf("\"%s\"", result[i]);
+// 	i++;
+// 	}
+// 	return (0);
+// }
