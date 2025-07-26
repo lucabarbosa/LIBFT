@@ -16,6 +16,8 @@ char	**ft_split(char const *s, char c);
 
 static int	word_count(const char *str, char c);
 
+static void split_loop(size_t *j, size_t total_word, char c, char **splited, const char *s);
+
 static char *fill_word(const char *str, int start, int end);
 
 static void *ft_free(char **strs, int count);
@@ -23,33 +25,40 @@ static void *ft_free(char **strs, int count);
 char	**ft_split(char const *s, char c)
 {
 		size_t	total_word;
-		size_t	i;
 		size_t	j;
-		int	first;
 		char	**splited;
 		
-		i = 0;
 		j = 0;
-		first = -1;
 		total_word = word_count(s, c);
 		splited = ft_calloc((total_word + 1), sizeof(char*));
 		if (!splited)
 			return (NULL);
-		while (j < total_word)
-		{
-			if (s[i] != c && first < 0)
-				first = i;
-			else if ((s[i] == c || i == ft_strlen(s)) && first >= 0)
+		j = 0;
+	split_loop(&j, total_word, c, splited, s);
+	return (splited);
+		return (splited);
+}
+static void split_loop(size_t *j, size_t total_word, char c, char **splited, const char *s)
+{
+	size_t	i;
+	int	first;
+
+	i = 0;
+	first = -1;
+	while (*j < total_word)
+	{
+		if (s[i] != c && first < 0)
+			first = i;
+			else if ((s[i] == c || s[i + 1] == '\0') && first >= 0)
 			{
-				splited[j] = fill_word(s, first, i);
-				if (!splited[j])
-				ft_free(splited, j);
+				splited[*j] = fill_word(s, first, i);
+				if (!splited[*j])
+					ft_free(splited, *j);
 			first = -1;
-			j++;
+			(*j)++;
 			}
 		i++;
-		}
-		return (splited);
+	}
 }
 
 static int	word_count(const char *str, char c)
@@ -105,6 +114,7 @@ static void *ft_free(char **strs, int count)
 	free(strs);
 	return (NULL);
 }
+
 #include <stdio.h>
 int	main(void)
 {
