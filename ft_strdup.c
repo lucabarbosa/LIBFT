@@ -6,7 +6,7 @@
 /*   By: lbento <lbento@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/17 20:31:27 by lbento            #+#    #+#             */
-/*   Updated: 2025/07/24 14:15:31 by lbento           ###   ########.fr       */
+/*   Updated: 2025/07/25 19:27:56 by lbento           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ char	*ft_strdup(const char *s);
 char	*ft_strdup(const char *s)
 {
 	size_t	size_s;
-	char		*dest;
-	
+	char	*dest;
+
 	size_s = ft_strlen(s) + 1;
 	dest = (char *)malloc(size_s * sizeof(char));
 	if (dest == NULL)

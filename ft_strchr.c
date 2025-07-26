@@ -6,7 +6,7 @@
 /*   By: lbento <lbento@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/16 20:03:26 by lbento            #+#    #+#             */
-/*   Updated: 2025/07/24 12:47:12 by lbento           ###   ########.fr       */
+/*   Updated: 2025/07/25 19:26:18 by lbento           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,12 @@ char	*ft_strchr(const char *s, int c);
 
 char	*ft_strchr(const char *s, int c)
 {
-	int			i;
-	const char	*str;
-	unsigned char cc;
+	unsigned char	cc;
+	int				i;
+	const char		*str;
 
 	if (!s)
-			return (NULL);
+		return (NULL);
 	str = s;
 	cc = (unsigned char)c;
 	i = 0;

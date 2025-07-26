@@ -6,7 +6,7 @@
 /*   By: lbento <lbento@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 19:42:44 by lbento            #+#    #+#             */
-/*   Updated: 2025/07/25 18:40:39 by lbento           ###   ########.fr       */
+/*   Updated: 2025/07/25 21:46:52 by lbento           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,35 +22,28 @@ static void *ft_free(char **strs, int count);
 
 char	**ft_split(char const *s, char c)
 {
-		int	total_word;
-		char	**splited;
-		int	i;
-		int	j;
-		int	len;
+		size_t	total_word;
+		size_t	i;
+		size_t	j;
 		int	first;
+		char	**splited;
 		
-		if (!s)
-			return (NULL);
+		i = 0;
+		j = 0;
+		first = -1;
 		total_word = word_count(s, c);
 		splited = ft_calloc((total_word + 1), sizeof(char*));
 		if (!splited)
 			return (NULL);
-		len = ft_strlen(s);
-		i = 0;
-		j = 0;
-		first = -1;
-		while (j< total_word)
+		while (j < total_word)
 		{
 			if (s[i] != c && first < 0)
 				first = i;
-			else if ((s[i] == c || i == len) && first >= 0)
+			else if ((s[i] == c || i == ft_strlen(s)) && first >= 0)
 			{
 				splited[j] = fill_word(s, first, i);
 				if (!splited[j])
-				{
 				ft_free(splited, j);
-				return (NULL);	
-				}
 			first = -1;
 			j++;
 			}
@@ -112,17 +105,18 @@ static void *ft_free(char **strs, int count)
 	free(strs);
 	return (NULL);
 }
-// #include <stdio.h>
-// int	main(void)
-// {
-// 	char **result;
-// 	int	i;
-// 	result = ft_split("Hello entire world", ' ');
-// 	i = 0;
-// 	while(result[i])
-// 	{
-// 	printf("\"%s\"", result[i]);
-// 	i++;
-// 	}
-// 	return (0);
-// }
+#include <stdio.h>
+int	main(void)
+{
+	char **result;
+	int	i;
+	result = ft_split("Hello entire world", ' ');
+	i = 0;
+	while(result[i])
+	{
+	printf("\"%s\"", result[i]);
+	i++;
+	}
+	ft_free(result, i);
+	return (0);
+}
