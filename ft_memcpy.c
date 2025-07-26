@@ -30,12 +30,12 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	}
 	return (dest);
 }
-// #include <stdio.h>
-// int	main(void)
-// {
-// 	char source[11] = "Hello World";
-// 	char dest[11];
+//  #include <stdio.h>
+//  int	main(void)
+//  {
+//  	char source[11] = "Hello World";
+//  	char dest[11];
 
-// 	ft_memcpy(dest, source, 12);
-// 	printf("%s\n", dest);
-// }
+//  	ft_memcpy(dest, source, 12);
+//  	printf("%s\n", dest);
+//  }
