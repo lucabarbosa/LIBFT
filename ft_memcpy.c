@@ -6,7 +6,7 @@
 /*   By: lbento <lbento@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/18 10:44:36 by lbento            #+#    #+#             */
-/*   Updated: 2025/07/18 11:56:19 by lbento           ###   ########.fr       */
+/*   Updated: 2025/07/29 16:02:41 by lbento           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	const unsigned char	*copied;
 	unsigned char		*pasted;
 
+	if (dest == NULL && src == NULL)
+		return (NULL);
 	i = 0;
 	copied = (const unsigned char *)src;
 	pasted = (unsigned char *)dest;
@@ -33,9 +35,9 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 //  #include <stdio.h>
 //  int	main(void)
 //  {
-//  	char source[11] = "Hello World";
-//  	char dest[11];
+//  	char source[1] = "\0";
+//  	char dest[1];
 
-//  	ft_memcpy(dest, source, 12);
+//  	ft_memcpy(dest, source, 1);
 //  	printf("%s\n", dest);
 //  }

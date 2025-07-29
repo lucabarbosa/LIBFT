@@ -1,36 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_lstiter_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lbento <lbento@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/17 12:49:45 by lbento            #+#    #+#             */
-/*   Updated: 2025/07/17 19:08:39 by lbento           ###   ########.fr       */
+/*   Created: 2025/07/29 13:31:59 by lbento            #+#    #+#             */
+/*   Updated: 2025/07/29 13:52:35 by lbento           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n);
+void	ft_lstiter(t_list *lst, void (*f)(void *));
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	if (n == 0)
-		return (0);
-	while (n - 1 && *s1 && (*s1 == *s2))
+	while (lst != NULL)
 	{
-		s1++;
-		s2++;
-		n--;
+		f(lst->content);
+		lst = lst->next;
 	}
-	return ((unsigned char) *s1 - (unsigned char) *s2);
 }
-// #include<stdio.h>
-// int	main(void)
-// {
-// 	char *s1 = "Hello";
-// 	char *s2= "Hello";
-// 	int result;
-// 	printf("%d\n", result = ft_strncmp(s1, s2, 0));
-// }

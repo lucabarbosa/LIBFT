@@ -6,7 +6,7 @@
 /*   By: lbento <lbento@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/16 20:53:31 by lbento            #+#    #+#             */
-/*   Updated: 2025/07/24 13:39:03 by lbento           ###   ########.fr       */
+/*   Updated: 2025/07/29 12:09:04 by lbento           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ char	*ft_strrchr(const char *s, int c);
 char	*ft_strrchr(const char *s, int c)
 {
 	int		len;
-	char		*str;
-	
+	char	*str;
+
 	len = ft_strlen(s);
 	str = (char *)s;
 	while (len >= 0)
@@ -27,7 +27,7 @@ char	*ft_strrchr(const char *s, int c)
 			return (&str[len]);
 		len--;
 	}
-	return	(NULL);
+	return (NULL);
 }
 // #include <stdio.h>
 // int main (void)

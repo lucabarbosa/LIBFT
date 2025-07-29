@@ -20,8 +20,6 @@ char	*ft_strchr(const char *s, int c)
 	int				i;
 	const char		*str;
 
-	if (!s)
-		return (NULL);
 	str = s;
 	cc = (unsigned char)c;
 	i = 0;

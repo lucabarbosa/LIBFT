@@ -1,36 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_lstclear_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lbento <lbento@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/17 12:49:45 by lbento            #+#    #+#             */
-/*   Updated: 2025/07/17 19:08:39 by lbento           ###   ########.fr       */
+/*   Created: 2025/07/29 13:26:15 by lbento            #+#    #+#             */
+/*   Updated: 2025/07/29 13:52:06 by lbento           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n);
+void	ft_lstclear(t_list **lst, void (*del)(void *));
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	if (n == 0)
-		return (0);
-	while (n - 1 && *s1 && (*s1 == *s2))
+	t_list	*next_one;
+
+	if (!lst || !*lst)
+		return ;
+	while (*lst)
 	{
-		s1++;
-		s2++;
-		n--;
+		next_one = (*lst)->next;
+		del((*lst)->content);
+		free(*lst);
+		*lst = next_one;
 	}
-	return ((unsigned char) *s1 - (unsigned char) *s2);
 }
-// #include<stdio.h>
-// int	main(void)
-// {
-// 	char *s1 = "Hello";
-// 	char *s2= "Hello";
-// 	int result;
-// 	printf("%d\n", result = ft_strncmp(s1, s2, 0));
-// }

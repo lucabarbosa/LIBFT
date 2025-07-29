@@ -1,36 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_lstsize_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lbento <lbento@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/17 12:49:45 by lbento            #+#    #+#             */
-/*   Updated: 2025/07/17 19:08:39 by lbento           ###   ########.fr       */
+/*   Created: 2025/07/29 12:57:03 by lbento            #+#    #+#             */
+/*   Updated: 2025/07/29 13:52:56 by lbento           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n);
+int	ft_lstsize(t_list *lst);
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+int	ft_lstsize(t_list *lst)
 {
-	if (n == 0)
-		return (0);
-	while (n - 1 && *s1 && (*s1 == *s2))
+	int	i;
+
+	i = 0;
+	while (lst != NULL)
 	{
-		s1++;
-		s2++;
-		n--;
+		lst = lst ->next;
+		i++;
 	}
-	return ((unsigned char) *s1 - (unsigned char) *s2);
+	return (i);
 }
-// #include<stdio.h>
-// int	main(void)
-// {
-// 	char *s1 = "Hello";
-// 	char *s2= "Hello";
-// 	int result;
-// 	printf("%d\n", result = ft_strncmp(s1, s2, 0));
-// }
