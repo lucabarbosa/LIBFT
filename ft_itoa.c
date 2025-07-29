@@ -6,7 +6,7 @@
 /*   By: lbento <lbento@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 19:49:35 by lbento            #+#    #+#             */
-/*   Updated: 2025/07/23 14:09:46 by lbento           ###   ########.fr       */
+/*   Updated: 2025/07/29 19:04:18 by lbento           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,24 +70,24 @@ char	*ft_itoa(int n)
 	}
 	return (result);
 }
-// #include <stdio.h>
-// int	main(void)
-// {
-// 	char *result;
-// 	result = ft_itoa(123);
-// 	printf("Convertido: %s\n", result);
-// 	free (result);
-// 	result = ft_itoa(0);
-// 	printf("Convertido: %s\n", result);
-// 	free (result);
-// 	result = ft_itoa(2147483647);
-// 	printf("Convertido: %s\n", result);
-// 	free (result);
-// 	result = ft_itoa(-253);
-// 	printf("Convertido: %s\n", result);
-// 	free (result);
-// 	result = ft_itoa(-2147483648);
-// 	printf("Convertido: %s\n", result);
-// 	free (result);
-// 	return (0);
-// }
+#include <stdio.h>
+int	main(void)
+{
+	char *result;
+	result = ft_itoa(123);
+	printf("Convertido: %s\n", result);
+	free (result);
+	result = ft_itoa(0);
+	printf("Convertido: %s\n", result);
+	free (result);
+	result = ft_itoa(2147483647);
+	printf("Convertido: %s\n", result);
+	free (result);
+	result = ft_itoa(-253);
+	printf("Convertido: %s\n", result);
+	free (result);
+	result = ft_itoa(-2147483648);
+	printf("Convertido: %s\n", result);
+	free (result);
+	return (0);
+}
