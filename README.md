@@ -45,5 +45,5 @@ $> make
 
 ## ⚙️ Excalidraw
 
-To see the explanations, pull the file *.excalidraw into the website www.excalidraw.com.br.
+To see the explanations, pull the file *.excalidraw into the website https://excalidraw.com.
 The website will open my drawings and exlanations.
