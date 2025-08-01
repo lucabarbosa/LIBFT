@@ -42,3 +42,8 @@ Utility functions:
 
 To compile the library, run it on terminal:
 $> make
+
+## ⚙️ Excalidraw
+
+To see the explanations, pull the file *.excalidraw into the website www.excalidraw.com.br.
+The website will open my drawings and exlanations.
