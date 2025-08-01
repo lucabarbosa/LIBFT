@@ -6,7 +6,7 @@
 /*   By: lbento <lbento@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 19:42:44 by lbento            #+#    #+#             */
-/*   Updated: 2025/07/29 12:06:57 by lbento           ###   ########.fr       */
+/*   Updated: 2025/08/01 14:58:29 by lbento           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static int	word_count(const char *str, char c);
 
-static void	split_loop(size_t j, char c, char **splited, const char *s);
+static void	split_loop(char c, char **splited, const char *s);
 
 static char	*fill_word(const char *str, int start, int end);
 
@@ -23,26 +23,25 @@ static void	*ft_free(char **strs, int count);
 char	**ft_split(char const *s, char c)
 {
 	size_t	total_word;
-	size_t	j;
 	char	**splited;
 
-	j = 0;
 	total_word = word_count(s, c);
 	splited = ft_calloc((total_word + 1), sizeof(char *));
 	if (!splited)
 		return (NULL);
-	j = 0;
-	split_loop(j, c, splited, s);
+	split_loop(c, splited, s);
 	return (splited);
 }
 
-static void	split_loop(size_t j, char c, char **splited, const char *s)
+static void	split_loop(char c, char **splited, const char *s)
 {
 	int		first;
 	size_t	i;
+	size_t	j;
 	size_t	total_word;
 
 	i = 0;
+	j = 0;
 	first = -1;
 	total_word = word_count(s, c);
 	while (j < total_word)
@@ -55,7 +54,7 @@ static void	split_loop(size_t j, char c, char **splited, const char *s)
 			if (!splited[j])
 				ft_free(splited, j);
 		first = -1;
-		(j)++;
+		j++;
 		}
 		i++;
 	}

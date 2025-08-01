@@ -6,13 +6,13 @@
 #    By: lbento <lbento@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/15 18:22:14 by lbento            #+#    #+#              #
-#    Updated: 2025/07/29 16:01:47 by lbento           ###   ########.fr        #
+#    Updated: 2025/08/01 15:01:37 by lbento           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 
-CC = gcc
+CC = cc
 CPPFLAGS = -I.
 CFLAGS = -Wall -Wextra -Werror
 

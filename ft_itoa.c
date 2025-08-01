@@ -70,24 +70,3 @@ char	*ft_itoa(int n)
 	}
 	return (result);
 }
-#include <stdio.h>
-int	main(void)
-{
-	char *result;
-	result = ft_itoa(123);
-	printf("Convertido: %s\n", result);
-	free (result);
-	result = ft_itoa(0);
-	printf("Convertido: %s\n", result);
-	free (result);
-	result = ft_itoa(2147483647);
-	printf("Convertido: %s\n", result);
-	free (result);
-	result = ft_itoa(-253);
-	printf("Convertido: %s\n", result);
-	free (result);
-	result = ft_itoa(-2147483648);
-	printf("Convertido: %s\n", result);
-	free (result);
-	return (0);
-}
